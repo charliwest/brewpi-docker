@@ -2,7 +2,7 @@ server {
     listen       80;
     server_name  brewpi.local;
     
-    root /var/www/html;
+    root /var/www/html/brewpi;
     index index.php index.html index.htm;
 
     location / {
