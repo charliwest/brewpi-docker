@@ -34,8 +34,8 @@ RUN bash -c "echo -e \"brewpi\nbrewpi\"|passwd brewpi"
 RUN rm -rf /var/www/html
 
 # clone brewpi repositories
-RUN git clone --depth 1 https://github.com/BrewPi/brewpi-script /home/brewpi
-RUN git clone --depth 1 https://github.com/BrewPi/brewpi-www /var/www/html
+RUN git clone --depth 1 https://github.com/charliwest/brewpi-script /home/brewpi
+RUN git clone --depth 1 https://github.com/charliwest/brewpi-www /var/www/html
 RUN git clone --depth 1 https://github.com/BrewPi/brewpi-tools /root/brewpi-tools
 
 # just to be sure, also run the fixPermissions script
