@@ -23,7 +23,7 @@ RUN apt-get update && apt-get install -y \
 RUN pip install --upgrade pip
 
 # install pip dependencies
-RUN pip install pyserial psutil simplejson configobj gitpython --upgrade
+RUN pip install pyserial psutil simplejson configobj gitpython numpy --upgrade
 
 # create users and add them to the right group
 RUN useradd -G www-data,dialout brewpi
