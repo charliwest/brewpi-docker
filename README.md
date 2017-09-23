@@ -6,13 +6,13 @@ We have an image based on Ubuntu 16.04 and an image based on raspbian. (Currentl
 
 ~~To deploy a brewpi container, take these steps:~~
 
-~~For a raspberry pi (running hypriot)
+~~For a raspberry pi (running hypriot)~~
 ------------------------------------
-~~Get the latest raspbian based image image 
+~~Get the latest raspbian based image image ~~
 ```
 docker pull brewpi/brewpi-raspbian
 ```
-Deploy a new container. Modify the command below to to your liking, especially the port and the data location on the host (default is `~/brewpi-data`).
+~~Deploy a new container. Modify the command below to to your liking, especially the port and the data location on the host (default is `~/brewpi-data`).~~
 ``` bash
 docker run -d --name brewpi -p 80:80 -v ~/brewpi-data:/data -v /etc/timezone:/etc/timezone -v /etc/localtime:/etc/localtime --restart always brewpi/brewpi-raspbian
 ```
