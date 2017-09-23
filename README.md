@@ -4,7 +4,7 @@ This docker container runs the web interface and python scripts for BrewPi, with
 
 We have an image based on Ubuntu 16.04 and an image based on raspbian. (Currently this branch is only tested on ubuntu, I will get to raspbian soon)
 
-~~To deploy a brewpi container, take these steps:
+~~To deploy a brewpi container, take these steps:~~
 
 ~~For a raspberry pi (running hypriot)
 ------------------------------------
