@@ -1,14 +1,14 @@
 # brewpi-docker: docker images to run a BrewPi server
 
-This docker container runs the web interface and python scripts for BrewPi.
+This docker container runs the web interface and python scripts for BrewPi, with added parts for the iSpindel.
 
-We have an image based on Ubuntu 16.04 and an image based on raspbian.
+We have an image based on Ubuntu 16.04 and an image based on raspbian. (Currently this branch is only tested on ubuntu, I will get to raspbian soon)
 
-To deploy a brewpi container, take these steps:
+~~To deploy a brewpi container, take these steps:
 
-For a raspberry pi (running hypriot)
+~~For a raspberry pi (running hypriot)
 ------------------------------------
-Get the latest raspbian based image image 
+~~Get the latest raspbian based image image 
 ```
 docker pull brewpi/brewpi-raspbian
 ```
@@ -17,17 +17,16 @@ Deploy a new container. Modify the command below to to your liking, especially t
 docker run -d --name brewpi -p 80:80 -v ~/brewpi-data:/data -v /etc/timezone:/etc/timezone -v /etc/localtime:/etc/localtime --restart always brewpi/brewpi-raspbian
 ```
 
-
 For x64/x86 based systems
 -------------------------
 
 Get the latest ubuntu based image image 
 ```
-docker pull brewpi/brewpi-ubuntu
+docker pull charliwest/brewpi-ubuntu
 ```
 Deploy a new container. Modify the command below to to your liking, especially the port and the data location on the host (default is `~/brewpi-data`).
 ``` bash
-docker run -d --name brewpi -p 80:80 -v ~/brewpi-data:/data -v /etc/timezone:/etc/timezone -v /etc/localtime:/etc/localtime --restart always brewpi/brewpi-ubuntu
+docker run -d --name brewpi -p 80:80 -v ~/brewpi-data:/data -v /etc/timezone:/etc/timezone -v /etc/localtime:/etc/localtime --restart always charliwest/brewpi-ubuntu
 ```
 
 
