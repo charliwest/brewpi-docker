@@ -22,11 +22,11 @@ For x64/x86 based systems
 
 Get the latest ubuntu based image image 
 ```
-docker pull charliwest/brewpi-ubuntu
+docker pull charliwest/brewpi-ispindel
 ```
 Deploy a new container. Modify the command below to to your liking, especially the port and the data location on the host (default is `~/brewpi-data`).
 ``` bash
-docker run -d --name brewpi -p 80:80 -v ~/brewpi-data:/data -v /etc/timezone:/etc/timezone -v /etc/localtime:/etc/localtime --restart always charliwest/brewpi-ubuntu
+docker run -d --name brewpi -p 80:80 -v ~/brewpi-data:/data -v /etc/timezone:/etc/timezone -v /etc/localtime:/etc/localtime --restart always charliwest/brewpi-ispindel
 ```
 
 
