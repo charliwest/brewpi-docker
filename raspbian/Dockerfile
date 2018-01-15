@@ -1,4 +1,4 @@
-FROM resin/rpi-raspbian:jessie
+FROM resin/rpi-raspbian
 MAINTAINER BrewPi / Elco Jacobs <elco@brewpi.com>
 
 # expose port 80, the default web server port
