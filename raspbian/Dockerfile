@@ -2,7 +2,8 @@ FROM resin/rpi-raspbian:jessie
 MAINTAINER BrewPi / Elco Jacobs <elco@brewpi.com>
 
 # expose port 80, the default web server port
-EXPOSE 80
+# expose port 9501 for iSpindel
+EXPOSE 80 9501
 
 # install apt dependencies
 RUN apt-get update && apt-get install -y \
