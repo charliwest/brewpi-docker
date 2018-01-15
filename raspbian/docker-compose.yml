@@ -6,7 +6,8 @@ services:
     container_name: brewpi-${BREWPI_ID} 
     hostname: brewpi-${BREWPI_ID}.local
     ports:
-        - 80${BREWPI_ID}:80 
+        - 80${BREWPI_ID}:80        
+        - 9501${BREWPI_ID}:9501
     environment:
         - BREWPI_ID=${BREWPI_ID}
     volumes:
