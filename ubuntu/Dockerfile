@@ -1,9 +1,10 @@
 FROM ubuntu:16.04
 MAINTAINER BrewPi / Elco Jacobs <elco@brewpi.com>
 
-# expose port 80, the default web server port. 
+# expose port 80, the default web server port
+# expose port 81, will proxy to 80 with password protection
 # expose port 9501 for iSpindel
-EXPOSE 80 9501
+EXPOSE 80 81 9501
 
 # install apt dependencies
 RUN apt-get update && apt-get install -y \
@@ -18,13 +19,21 @@ RUN apt-get update && apt-get install -y \
   tzdata \
   vim \
   dfu-util \
+  apache2-utils \
   sudo
   
 # upgrade pip
 RUN pip install --upgrade pip
 
+# install setuptools and wheel
+RUN pip install --upgrade setuptools wheel
+
 # install pip dependencies
+<<<<<<< HEAD
 RUN pip install pyserial psutil simplejson configobj gitpython numpy --upgrade
+=======
+RUN pip install --upgrade pyserial psutil simplejson configobj gitpython
+>>>>>>> upstream/master
 
 # create users and add them to the right group
 RUN useradd -G www-data,dialout brewpi

@@ -29,12 +29,21 @@ chown -R brewpi:brewpi /data
 chown -R brewpi:www-data /data/html_data
 
 # Make sure to always have the log files around
-sudo -u brewpi mkdir -p /home/brewpi/logs
 sudo -u brewpi touch /home/brewpi/logs/stderr.txt
 sudo -u brewpi touch /home/brewpi/logs/stdout.txt
 
+# setup default password for port 81 if the password file doesn't exist
+if ! [ -f /data/settings/brewpi.htpasswd ]; then
+  htpasswd -bc /data/settings/brewpi.htpasswd brewer brewpi
+fi
+
+# make sure a config.cfg file exist, so it is easier for users to edit it
+if ! [ -f /data/settings/config.cfg ]; then
+  sudo -u brewpi cp /data/settings/config.cfg.example /data/settings/config.cfg
+fi
+
 service nginx start
-service php5-fpm start
+service php7.0-fpm start
 
 # run command if passed to the container, instead of running watcher.sh
 exec "$@"

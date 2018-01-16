@@ -1,9 +1,10 @@
-FROM resin/rpi-raspbian:jessie
+FROM resin/rpi-raspbian:stretch
 MAINTAINER BrewPi / Elco Jacobs <elco@brewpi.com>
 
 # expose port 80, the default web server port
+# expose port 81, will proxy to 80 with password protection
 # expose port 9501 for iSpindel
-EXPOSE 80 9501
+EXPOSE 80 81 9501
 
 # install apt dependencies
 RUN apt-get update && apt-get install -y \
@@ -11,18 +12,25 @@ RUN apt-get update && apt-get install -y \
   python-dev \
   python-pip \
   git \
-  php5-fpm \
+  php7.0-fpm \
+  php7.0-mbstring \
+  php7.0-xml \
   nginx \
   tzdata \
   nano \
+  vim \
   dfu-util \
+  apache2-utils \
   sudo
-  
+
 # upgrade pip
 RUN pip install --upgrade pip
 
+# install setuptools and wheel
+RUN pip install --upgrade setuptools wheel
+
 # install pip dependencies
-RUN pip install pyserial psutil simplejson configobj gitpython --upgrade
+RUN pip install --upgrade pyserial psutil simplejson configobj gitpython
 
 # create users and add them to the right group
 RUN useradd -G www-data,dialout brewpi
