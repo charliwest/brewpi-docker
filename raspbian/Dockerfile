@@ -11,13 +11,15 @@ RUN apt-get update && apt-get install -y \
   python-dev \
   python-pip \
   git \
-  php5-fpm \
+  php7.0-fpm \
+  php7.0-mbstring \
+  php7.0-xml \
   nginx \
   tzdata \
-  nano \
+  vim \
   dfu-util \
-  sudo
-  
+  sudo  
+
 # upgrade pip
 RUN pip install --upgrade pip
 
