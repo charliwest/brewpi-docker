@@ -29,11 +29,8 @@ RUN pip install --upgrade pip
 RUN pip install --upgrade setuptools wheel
 
 # install pip dependencies
-<<<<<<< HEAD
-RUN pip install pyserial psutil simplejson configobj gitpython numpy --upgrade
-=======
+
 RUN pip install --upgrade pyserial psutil simplejson configobj gitpython
->>>>>>> upstream/master
 
 # create users and add them to the right group
 RUN useradd -G www-data,dialout brewpi
